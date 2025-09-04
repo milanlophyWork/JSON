@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON Part 2</title>
+    </head>
+    <body>
+        <p>Difference between JavaScript and JSON</p>
+
+        <script>
+            const heading = ['','JSON', 'JavaScript']
+            datas = [
+                
+                {
+                    key : 'must be quoted',
+                    quotes : 'must use double quotes',
+                    function : 'cannot include functions'
+                },
+                {
+                    key : 'no quotes required (required if space in between)',
+                    quotes : 'can use single or double quotes',
+                    function : 'can include functions'
+                }
+            ]
+            
+            const table = document.createElement('table')
+            table.border = '1'
+            table.style.borderCollapse = 'collapse'
+            table.style.width = '100%'
+
+            const thead = document.createElement('thead')
+            const headerRow = document.createElement('tr')
+
+            heading.forEach((text)=> {
+                const th = document.createElement('th')
+                th.textContent = text
+                headerRow.appendChild(th)
+            })
+            thead.appendChild(headerRow)
+            table.appendChild(thead)
+
+            const tbody = document.createElement('tbody')
+
+            const props = ['key', 'quotes', 'function']
+
+            props.forEach((prop => {
+                const row = document.createElement('tr')
+
+                const tdLabel = document.createElement('td')
+                tdLabel.textContent = prop
+                row.appendChild(tdLabel)
+
+                datas.forEach((data)=> {
+                    const td = document.createElement('td')
+                    td.textContent =data[prop]
+                    row.appendChild(td)
+                })
+
+                tbody.appendChild(row)
+            }))
+
+            table.appendChild(tbody)
+            document.body.appendChild(table)
+
+        </script>
+    </body>
+</html>
